@@ -5,10 +5,10 @@ import (
 	"net/http"
 
 	"github.com/golang/glog"
-	"github.com/monzo/calico-accountant/iptables"
-	"github.com/monzo/calico-accountant/watch"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/thomasjardin/calico-accountant/iptables"
+	"github.com/thomasjardin/calico-accountant/watch"
 )
 
 var dropDesc = prometheus.NewDesc("no_policy_drop_counter", "Number of packets dropped to/from a workload because no policies matched them", []string{

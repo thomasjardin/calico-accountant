@@ -6,8 +6,8 @@ import (
 	"strconv"
 
 	"github.com/golang/glog"
-	"github.com/monzo/calico-accountant/metrics"
-	"github.com/monzo/calico-accountant/watch"
+	"github.com/thomasjardin/calico-accountant/metrics"
+	"github.com/thomasjardin/calico-accountant/watch"
 )
 
 func main() {

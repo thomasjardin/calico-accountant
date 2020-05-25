@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
-	"github.com/monzo/calico-accountant/watch"
 	apiv3 "github.com/projectcalico/libcalico-go/lib/apis/v3"
+	"github.com/thomasjardin/calico-accountant/watch"
 )
 
 type ChainType int
@@ -151,7 +151,10 @@ func parseFrom(stdout io.Reader, interfaceToWorkload map[string]*apiv3.WorkloadE
 		}
 
 		typ := chainTypeFromString(string(captures[2]))
-		iface := string(captures[3])
+
+		ifaceOld := string(captures[3])
+		iface := strings.Replace(ifaceOld, "eni", "cali", 1)
+		glog.V(4).Infof("Replacing interface name: %s to %s", ifaceOld, iface)
 
 		workload, ok := interfaceToWorkload[iface]
 		if !ok {
